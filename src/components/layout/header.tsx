@@ -64,7 +64,10 @@ export function Header() {
             <Link href={'/cart'}>
               <HeaderIcon src="/assets/ui/shopping-bag-4-line.png" alt="Carrinho" />
             </Link>
-            <div className="md:hidden" onClick={() => setMenuOpened(!menuOpened)}>
+            <div
+              className="md:hidden"
+              onClick={() => setMenuOpened(prev => !prev)}
+            >
               <HeaderIcon
                 src="/assets/ui/menu-line.png"
                 alt="Menu"
