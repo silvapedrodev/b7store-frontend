@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 
 export default function SiteLayout({
@@ -11,6 +12,7 @@ export default function SiteLayout({
       <main className="w-full max-w-6xl p-6 mx-auto">
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
