@@ -23,7 +23,7 @@ export const Footer = () => {
 
   return (
     <footer>
-      <div className="bg-red-white border-t border-gray-200 px-6 py-14">
+      <div className="bg-white border-t border-gray-200 px-6 py-14">
         <div className="w-full max-w-6xl mx-auto p-6 flex flex-col md:flex-row items-center gap-6">
           <Image
             src={'/assets/ui/mail-send-line.png'}
