@@ -36,7 +36,7 @@ export function Header() {
             </Link>
           </div>
           <div className="flex-1">
-            <div className="w-full hidden md:flex items-center px-6 gap-6">
+            <div className="w-full hidden xl:flex items-center px-6 gap-6">
               <div className="flex-1 items-center">
                 <ul className="flex gap-10 font-medium text-gray-500">
                   {menu.map(item => (
@@ -61,7 +61,7 @@ export function Header() {
               <HeaderIcon src="/assets/ui/shopping-bag-4-line.png" alt="Carrinho" />
             </Link>
             <div
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setMenuOpened(prev => !prev)}
             >
               <HeaderIcon
@@ -75,7 +75,7 @@ export function Header() {
         </div>
       </div>
       {menuOpened &&
-        <div className="md:hidden pb-6">
+        <div className="lg:hidden pb-6">
           {menu.map(item => (
             <Link key={item.label} href={item.href}>
               <div className="p-6 border-b border-gray-200 flex items-center justify-between">
@@ -92,7 +92,7 @@ export function Header() {
           ))}
         </div>
       }
-      <div className="p-6 pt-0 md:hidden">
+      <div className="p-6 pt-0 lg:hidden">
         <HeaderSearch />
       </div>
     </header>
