@@ -36,7 +36,7 @@ export function Header() {
             </Link>
           </div>
           <div className="flex-1">
-            <div className="w-full hidden xl:flex items-center px-6 gap-6">
+            <div className="w-full hidden lg:flex items-center px-6 gap-6">
               <div className="flex-1 items-center">
                 <ul className="flex gap-10 font-medium text-gray-500">
                   {menu.map(item => (
