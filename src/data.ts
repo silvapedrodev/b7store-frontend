@@ -34,5 +34,16 @@ export const data = {
       price: 19.99,
       liked: false
     },
-  ]
+  ],
+  product: {
+    id: 1,
+    label: 'Camisa PHP',
+    images: [
+      '/assets/products/camiseta-php.png',
+      '/assets/products/camiseta-laravel-branca.png'
+    ],
+    price: 19.90,
+    liked: false,
+    description: 'Lorem ipsum dolor sit amet.'
+  }
 }
