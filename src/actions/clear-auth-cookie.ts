@@ -2,6 +2,6 @@
 
 import { clearServerAuthToken } from "@/libs/server-cookies"
 
-export const ClearAuthCookie = async () => {
+export const clearAuthCookie = async () => {
   await clearServerAuthToken();
 }

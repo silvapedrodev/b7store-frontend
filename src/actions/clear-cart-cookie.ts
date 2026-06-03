@@ -2,6 +2,6 @@
 
 import { clearServerCart } from "@/libs/server-cookies"
 
-export const ClearCartCookie = async () => {
+export const clearCartCookie = async () => {
   await clearServerCart();
 }
