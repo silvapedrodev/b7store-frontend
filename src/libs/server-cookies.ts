@@ -1,4 +1,4 @@
-import { CardItem } from "@/types/cart-item";
+import { CartItem } from "@/types/cart-item";
 import { cookies } from "next/headers";
 
 // AUTH COOKIE
@@ -18,7 +18,7 @@ export const clearServerAuthToken = async () => {
 }
 
 // CART COOKIE
-export const getServerCart = async (): Promise<CardItem[]> => {
+export const getServerCart = async (): Promise<CartItem[]> => {
   const cookieStore = await cookies();
   const value = cookieStore.get('cart')?.value;
 
@@ -31,7 +31,7 @@ export const getServerCart = async (): Promise<CardItem[]> => {
   }
 }
 
-export const setServerCart = async (cart: CardItem[]) => {
+export const setServerCart = async (cart: CartItem[]) => {
   const cookieStore = await cookies();
   cookieStore.set('cart', JSON.stringify(cart), { httpOnly: true });
 }

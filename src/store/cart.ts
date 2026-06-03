@@ -1,13 +1,13 @@
-import { CardItem } from "@/types/cart-item";
+import { CartItem } from "@/types/cart-item";
 import { create } from "zustand";
 
 type CartState = {
-  cart: CardItem[];
+  cart: CartItem[];
   shippingZipCode: string;
   shippingCost: number;
   shippingDays: number;
   selectedAddressId: number | null;
-  addItem: (cartItem: CardItem) => void;
+  addItem: (cartItem: CartItem) => void;
   removeItem: (productId: string | number) => void;
   updateQuantity: (productId: string | number, quantity: number) => void;
   setShippingZipCode: (zipcode: string) => void;
