@@ -1,5 +1,5 @@
 import { setCartState } from "@/actions/set-cart-state";
-import { useCartStore } from "@/libs/cart";
+import { useCartStore } from "@/store/cart";
 import { CartListItem } from "@/types/cart-list-item"
 import Image from "next/image";
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useCartStore } from "@/libs/cart";
+import { useCartStore } from "@/store/cart";
 import { CartListItem } from "@/types/cart-list-item"
 import Image from "next/image";
 import { useEffect } from "react";

@@ -1,7 +1,7 @@
 "use client"
 
 import { getCartState } from "@/actions/get-cart-state"
-import { useCartStore } from "@/libs/cart"
+import { useCartStore } from "@/store/cart"
 import { useEffect } from "react"
 
 export const StoreHydration = () => {

@@ -1,7 +1,7 @@
 "use client"
 
 import { setCartState } from "@/actions/set-cart-state";
-import { useCartStore } from "@/libs/cart";
+import { useCartStore } from "@/store/cart";
 import { ProductComplete } from "@/types/product";
 import Image from "next/image";
 import { redirect } from "next/navigation";
