@@ -6,11 +6,14 @@ import { useAuthStore } from "@/store/auth";
 import { useCartStore } from "@/store/cart"
 import { Address } from "@/types/address";
 import { ChangeEvent, useEffect, useState, useTransition } from "react";
+import { AddressModal } from "./address-modal";
+import { addUserAddress } from "@/actions/add-user-addres";
 
 export const ShippingBoxLogged = () => {
   const { token, hydrated } = useAuthStore(state => state);
   const cartStore = useCartStore(state => state);
   const [addresses, setAddresses] = useState<Address[]>([]);
+  const [modalOpened, setModalOpened] = useState(false);
   const [pending, startTransition] = useTransition();
 
   useEffect(() => {
@@ -50,6 +53,15 @@ export const ShippingBoxLogged = () => {
     }
   }
 
+  const handleAddAddress = async (address: Address) => {
+    if (!token) return;
+    const newAddresses = await addUserAddress(token, address);
+    if (newAddresses) {
+      setAddresses(newAddresses);
+      setModalOpened(false);
+    }
+  }
+
   return (
     <div className="flex flex-col gap-4">
       <select
@@ -67,8 +79,14 @@ export const ShippingBoxLogged = () => {
         ))}
       </select>
       <button
-        className="bg-blue-600 text-white px-6 py-5 border-0 rounded-sm cursor-pointer"
+        onClick={() => setModalOpened(true)}
+        className="border-0 cursor-pointer"
       >Adicionar um novo endereço</button>
+      <AddressModal
+        open={modalOpened}
+        onClose={() => setModalOpened(false)}
+        onAdd={handleAddAddress}
+      />
     </div>
   )
 }
