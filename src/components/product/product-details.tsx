@@ -25,7 +25,6 @@ export const ProductDetails = ({ product }: Props) => {
       <div className="text-xs text-gray-500 mb-2">Cod {String(product.id).padStart(2, '0')}</div>
       <div className="font-medium text-2xl md:text-3xl mb-6">{product.label}</div>
       <div className="font-semibold text-4xl text-blue-600 mb-2">R$ {product.price.toFixed(2)}</div>
-      <div>CARRINHO: {cartStore.cart.length}</div>
       <div className="text-base text-gray-500 mb-6">Em até 12x sem juros.</div>
       <div className="flex gap-4">
         <button
