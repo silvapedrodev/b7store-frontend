@@ -29,8 +29,6 @@ export default async function Page() {
     }
   }
 
-
-
   return (
     <CartContainer 
       initialCartProducts={cartProducts}

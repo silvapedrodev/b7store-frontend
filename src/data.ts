@@ -45,5 +45,34 @@ export const data = {
     price: 19.90,
     liked: false,
     description: 'Lorem ipsum dolor sit amet.'
-  }
+  },
+  addresses: [
+    {
+      id: 1,
+      zipcode: '12345-678',
+      street: 'Rua teste 1',
+      number: 123,
+      city: 'Cidade Lorem',
+      state: 'Estado Lorem',
+      country: 'País',
+    },
+    {
+      id: 2,
+      zipcode: '67892-986',
+      street: 'Rua teste 1',
+      number: 456,
+      city: 'Cidade Lorem',
+      state: 'Estado Lorem',
+      country: 'País',
+    },
+    {
+      id: 3,
+      zipcode: '1222-856',
+      street: 'Rua teste 1',
+      number: 768,
+      city: 'Cidade Lorem',
+      state: 'Estado Lorem',
+      country: 'País',
+    }
+  ],
 }
