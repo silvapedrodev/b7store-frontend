@@ -1,4 +1,5 @@
 import { getShippingInfo } from "@/actions/get-shipping-info"
+import { formatCep } from "@/libs/format-cep"
 import { useCartStore } from "@/store/cart"
 
 export const ShippingBoxNotLogged = () => {
@@ -13,13 +14,6 @@ export const ShippingBoxNotLogged = () => {
       }
     }
   }
-
-  const formatCep = (value: string) => {
-    return value
-      .replace(/\D/g, "")
-      .slice(0, 8)
-      .replace(/^(\d{5})(\d+)/, "$1-$2");
-  };
 
   return (
     <div className="flex gap-4">
