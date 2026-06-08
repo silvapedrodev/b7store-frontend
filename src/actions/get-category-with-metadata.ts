@@ -1,3 +1,5 @@
+"use server"
+
 import { api } from "@/libs/axios";
 import { Category, CategoryMetadata } from "@/types/category";
 

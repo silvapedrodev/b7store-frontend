@@ -1,3 +1,5 @@
+"use server"
+
 import { api } from "@/libs/axios"
 import { Banner } from "@/types/banner";
 
