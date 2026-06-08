@@ -9,7 +9,7 @@ import { MenuItem } from "@/types/menu-item"
 
 export function Header() {
   const menu: MenuItem[] = [
-    { label: 'Camisetas', href: '/categories/camisetas' },
+    { label: 'Camisas', href: '/categories/camisas' },
     { label: 'Acessórios', href: '/categories/acessorios' },
     { label: 'Kits B7Web', href: '/categories/kits' },
     { label: 'Eletrônicos', href: '/categories/eletronicos' },
