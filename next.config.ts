@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
         hostname: 'localhost'
       }
     ],
+    // Disable image optimization for development; enable it in production
     unoptimized: true
   }
 };
