@@ -1,22 +1,46 @@
 "use client"
 
 import { UseQueryString } from "@/hooks/use-querystring";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { FilterGroup } from "./filter-group";
-import { data } from "@/data";
 import { ProductItem } from "../product-item";
 import { Category, CategoryMetadata } from "@/types/category";
+import { Product } from "@/types/product";
+import { getProducts } from "@/actions/get-products";
+import { Order } from "@/types/order";
+import { ProductGridSkeleton } from "./product-grid.skeleton";
 
 type Props = {
   category: Category;
   metadata: CategoryMetadata[];
+  filters: any;
 }
 
-export const ProductListFilter = ({ category, metadata }: Props) => {
+export const ProductListFilter = ({ category, metadata, filters }: Props) => {
   const queryString = UseQueryString();
   const [filterOpened, setFilterOpened] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const order = queryString.get('order') ?? 'views';
+  const order: Order = queryString.get('order') as Order ?? 'views';
+
+  const fetchProducts = async (filters: any) => {
+    filters.order = undefined;
+
+    setLoading(true);
+    setProducts(
+      await getProducts({
+        limit: 9,
+        metadata: filters,
+        orderBy: order
+      })
+    );
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchProducts(filters);
+  }, [filters]);
 
   const handleSelectChanged = (e: ChangeEvent<HTMLSelectElement>) => {
     queryString.set('order', e.target.value);
@@ -26,8 +50,15 @@ export const ProductListFilter = ({ category, metadata }: Props) => {
     <div>
       <div className="flex flex-col md:flex-row gap-5 justify-between items-start md:items-center">
         <div className="text-2xl md:text-3xl">
-          <strong>{data.products.length} </strong>
-          Produto{data.products.length !== 1 ? 's' : ''}
+          {loading &&
+            <div className="bg-gray-200 w-24 h-6 rounded animate-pulse"></div>
+          }
+          {!loading &&
+            <>
+              <strong>{products.length} </strong>
+              Produto{products.length !== 1 ? 's' : ''}
+            </>
+          }
         </div>
         <div className="w-full md:max-w-70 flex flex-row gap-5">
           <select
@@ -60,7 +91,10 @@ export const ProductListFilter = ({ category, metadata }: Props) => {
           ))}
         </div>
         <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {data.products.map(item => (
+          {loading &&
+            <ProductGridSkeleton />
+          }
+          {!loading && products.map(item => (
             <ProductItem key={item.id} data={item} />
           ))}
         </div>
