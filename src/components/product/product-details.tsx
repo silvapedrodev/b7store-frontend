@@ -17,7 +17,7 @@ export const ProductDetails = ({ product }: Props) => {
     cartStore.addItem({ productId: product.id, quantity: 1 });
     const updatedCart = useCartStore.getState().cart;
     await setCartState(updatedCart)
-    //redirect('cart');
+    redirect('/cart');
   }
 
   return (
