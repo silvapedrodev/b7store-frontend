@@ -124,12 +124,12 @@ export const LoginForm = () => {
       </div>
       <button
         type="submit"
-        className="w-full h-14 bg-blue-600 text-white py-2 rounded-sm mb-12 cursor-pointer hover:bg-blue-600/90"
+        className={`w-full h-14 bg-blue-600 text-white py-2 rounded-sm ${errors.form ? 'mb-2' : 'mb-12'} cursor-pointer hover:bg-blue-600/90`}
         disabled={pending}
       >
         {pending ? 'Entrando...' : 'Entrar'}
       </button>
-      {errors.form && <div className="text-red-500 text-sm mt-1">{errors.form}</div>}
+      {errors.form && <div className="text-red-500 text-sm mt-1 mb-12">{errors.form}</div>}
 
       <div className="text-center mb-10">
         <Link
