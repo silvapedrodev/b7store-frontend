@@ -1,5 +1,7 @@
 "use server"
 
+import { api } from "@/libs/axios";
+
 type ShippingInfoResponse = {
   zipcode: string;
   cost: number;
@@ -7,11 +9,11 @@ type ShippingInfoResponse = {
 }
 
 export const getShippingInfo = async (zipcode: string): Promise<ShippingInfoResponse | false> => {
-  // To-do fazer requisição para pegar info do CEP.
-
-  return {
-    zipcode: '12345-678',
-    cost: 7.90,
-    days: 3
-  }
+  try {
+    const response = await api.get('/cart/shipping', { params: { zipcode } });
+    if (response.status === 200) {
+      return response.data as ShippingInfoResponse;
+    }
+  } catch { }
+  return false;
 }
